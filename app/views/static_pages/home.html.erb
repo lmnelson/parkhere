@@ -1,79 +1,76 @@
-<h1>Search for a Parking Space</h1>
+<div class="span12">
+	<div id="map-canvas">
+		<p><img src="" alt=""></p>
+		<script type="text/javascript">
 
-<div class="row-fluid">
-	<div class="span12">
-		<div id="map-canvas">
-			<p><img src="" alt=""></p>
-			<script type="text/javascript">
+			// SET VARIABLES
+			var map;
+			var center;
+			// ADD MAP
+			function initialize() {
+			  var mapDiv = document.getElementById('map-canvas');
+			  map = new google.maps.Map(mapDiv, {
+			    center: new google.maps.LatLng(49.281916,-123.121891),
+			    zoom: 15,
+			    mapTypeId: google.maps.MapTypeId.ROADMAP,
+			    disableDefaultUI: true,
+			    mapTypeControl: true,
+	        mapTypeControlOptions: {
+	          style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+	        },
+	        navigationControl: true,
+	        navigationControlOptions: {
+	          style: google.maps.NavigationControlStyle.SMALL
+	        }				    
+			  });
+			  //INFO WINDOW
+			  var content = "Hey You!"
+			  infowindow = new google.maps.InfoWindow({
+			    content: content
+			  });
+			  // EVENT HANDLERS
+			  google.maps.event.addListenerOnce(map, 'tilesloaded', function(){
+			  	addMarkers();
+				});
+				google.maps.event.addListenerOnce(map,'idle', function(){
+					center(); 
+				});
+			}
 
-				// SET VARIABLES
-				var map;
-				var center;
-				// ADD MAP
-				function initialize() {
-				  var mapDiv = document.getElementById('map-canvas');
-				  map = new google.maps.Map(mapDiv, {
-				    center: new google.maps.LatLng(49.281916,-123.121891),
-				    zoom: 15,
-				    mapTypeId: google.maps.MapTypeId.ROADMAP,
-				    disableDefaultUI: true,
-				    mapTypeControl: true,
-		        mapTypeControlOptions: {
-		          style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-		        },
-		        navigationControl: true,
-		        navigationControlOptions: {
-		          style: google.maps.NavigationControlStyle.SMALL
-		        }				    
-				  });
-				  //INFO WINDOW
-				  var content = "Hey You!"
-				  infowindow = new google.maps.InfoWindow({
-				    content: content
-				  });
-				  // EVENT HANDLERS
-				  google.maps.event.addListenerOnce(map, 'tilesloaded', function(){
-				  	addMarkers();
-					});
-					google.maps.event.addListenerOnce(map,'idle', function(){
-						center(); 
-					});
-				}
+			// ADD MARKERS
+			function addMarkers() {
+			  var bounds = map.getBounds();
+			  var southWest = bounds.getSouthWest();
+			  var northEast = bounds.getNorthEast();
+			  var lngSpan = northEast.lng() - southWest.lng();
+			  var latSpan = northEast.lat() - southWest.lat();
+			  for (var i = 0; i < 10; i++) {
+			    var latLng = new google.maps.LatLng(southWest.lat() + latSpan * Math.random(),
+			                                        southWest.lng() + lngSpan * Math.random());
+			    var marker = new google.maps.Marker({
+			      position: latLng,
+			      map: map
+			    });
+			    google.maps.event.addListener(marker, 'click', function() {
+						var markerCenter = (this).getPosition();
+						map.panTo(markerCenter);
+			      infowindow.open(map, this);
+			    });
+			  }
+			}
 
-				// ADD MARKERS
-				function addMarkers() {
-				  var bounds = map.getBounds();
-				  var southWest = bounds.getSouthWest();
-				  var northEast = bounds.getNorthEast();
-				  var lngSpan = northEast.lng() - southWest.lng();
-				  var latSpan = northEast.lat() - southWest.lat();
-				  for (var i = 0; i < 10; i++) {
-				    var latLng = new google.maps.LatLng(southWest.lat() + latSpan * Math.random(),
-				                                        southWest.lng() + lngSpan * Math.random());
-				    var marker = new google.maps.Marker({
-				      position: latLng,
-				      map: map
-				    });
-				    google.maps.event.addListener(marker, 'click', function() {
-							var markerCenter = (this).getPosition();
-							map.panTo(markerCenter);
-				      infowindow.open(map, this);
-				    });
-				  }
-				}
+			// CENTER MAP ON RESIZE
+			function center() {
+				center = map.getCenter(); 
+				$(window).resize(function(){
+					map.setCenter(center); 
+				});
+			}
 
-				// CENTER MAP ON RESIZE
-				function center() {
-					center = map.getCenter(); 
-					$(window).resize(function(){
-						map.setCenter(center); 
-					});
-				}
+			// CALL FUNCTIONS
+			initialize();
 
-				// CALL FUNCTIONS
-				initialize();
-
-			</script>
-		</div> 
-	</div>
+		</script>
+	</div> 
 </div>
+

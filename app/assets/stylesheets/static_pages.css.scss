@@ -2,11 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#map-canvas {
-	height: 500px;
-	width: 100%;
-	border: 1px solid #ddd;
-	img {
-		max-width: none;
+
+#home {
+	.container-fluid.content {
+		padding: 0;
+		height: 100%; 
+		.span12,
+		#map-canvas,
+		.row-fluid {
+			height: 100%;
+		}
+		#map-canvas {
+			width: 100%;
+			border: 1px solid #ddd;
+			img {
+				max-width: none;
+			}
+		}
 	}
 }
