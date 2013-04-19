@@ -17,6 +17,7 @@ end
 
 group :development do
 	gem 'sqlite3'
+	gem 'nifty-generators'
 end
 
 group :production do
