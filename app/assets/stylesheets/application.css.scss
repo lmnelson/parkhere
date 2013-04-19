@@ -16,3 +16,8 @@
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
 @import "font-awesome";
+
+p.alert,
+p.notice {
+	display: none;
+}
