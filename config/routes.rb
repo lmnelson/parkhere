@@ -11,10 +11,11 @@ MusicCollabz::Application.routes.draw do
   end
   
   match '/about',        to: 'static_pages#about'
+  match '/home',         to: 'static_pages#home'
   match '/listings',     to: 'listings#index'
   match '/users/:id',    to: 'users#show'
   
-  root :to => "listings#index"
+  root :to => "static_pages#home"
   
 
   # The priority is based upon order of creation:
