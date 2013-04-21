@@ -53,6 +53,7 @@ GEM
     font-awesome-sass-rails (3.0.2.2)
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
+    gmaps4rails (1.5.6)
     hashie (2.0.3)
     hike (1.2.2)
     i18n (0.6.4)
@@ -67,7 +68,6 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.22)
     multi_json (1.7.2)
-    nifty-generators (0.4.6)
     oauth (0.4.7)
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
@@ -139,8 +139,8 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   font-awesome-sass-rails
+  gmaps4rails
   jquery-rails
-  nifty-generators
   omniauth-twitter
   pg
   rails (= 3.2.11)

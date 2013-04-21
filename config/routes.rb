@@ -1,11 +1,21 @@
 MusicCollabz::Application.routes.draw do
+    devise_for :users,  
+              path_names: {sign_in: "login", sign_out: "logout"},
+              controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
-  devise_for :users,  path_names: {sign_in: "login", sign_out: "logout"},
-                      controllers: {omniauth_callbacks: "omniauth_callbacks"}
+  resources :listings
+  resources :users
 
-  root to: 'static_pages#home'
+  authenticated :user do
+    root :to => "listings#index"
+  end
   
-  match '/about',   to: 'static_pages#about'
+  match '/about',        to: 'static_pages#about'
+  match '/listings',     to: 'listings#index'
+  match '/users/:id',    to: 'users#show'
+  
+  root :to => "listings#index"
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

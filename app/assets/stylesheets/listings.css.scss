@@ -1,0 +1,14 @@
+// Place all the styles related to the listings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#listings {
+	.container-fluid.content {
+		height: 100%;
+		padding: 0; 
+		.row-fluid,
+		.span12 {
+			height: 100%;
+		}
+	}
+}

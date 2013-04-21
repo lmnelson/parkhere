@@ -1,0 +1,11 @@
+<li>
+  <span class="content"><%= listing.city %>, <%= listing.street %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(listing.created_at) %> ago.
+  </span>
+  <% if current_user %>
+    <%= link_to "delete", listing, method: :delete,
+                                     confirm: "You sure?",
+                                     title: listing.street %>
+  <% end %>
+</li>

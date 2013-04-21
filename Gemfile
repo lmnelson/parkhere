@@ -8,6 +8,7 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'devise'
 gem 'omniauth-twitter'
+gem 'gmaps4rails'
 
 
 group :assets do

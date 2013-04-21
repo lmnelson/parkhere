@@ -1,0 +1,15 @@
+<aside class="span4">
+  <section>
+  	<h3>Add a Listing</h3>
+  	<%= render 'shared/listing_form' %>
+  </section>
+</aside>
+<div class="span8">
+  <h3>My Listings</h3>
+  <% if @user.listings.any? %>
+    <ol class="listings">
+      <%= render @listings %>
+    </ol>
+  <% end %>
+</div>
+
