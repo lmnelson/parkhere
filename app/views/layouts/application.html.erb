@@ -5,8 +5,6 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKWljEXYROEc14ZTxRAHYzPE-ZqfgK0hE&sensor=false">
-	</script>
 </head>
 <body <%= " id=#{@body_id}" if @body_id %>>
 	<%= render 'layouts/header' %>

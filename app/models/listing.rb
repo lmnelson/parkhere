@@ -6,4 +6,8 @@ class Listing < ActiveRecord::Base
   def gmaps4rails_address
     "#{city}, #{street}"
   end
+
+  def gmaps4rails_price 
+  	"#{price}"
+  end 
 end

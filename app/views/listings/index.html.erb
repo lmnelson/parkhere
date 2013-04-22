@@ -1,2 +1,48 @@
 <%= gmaps4rails(@json) %>
 
+<div id="slider" style="position: fixed, bottom: 50px, left: 50px, z-index: 10000000">
+	<div id='price-range' style="width: 500px"></div>
+	<input type="text" id="filtered-price" style="width: 200px"/>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    Gmaps.map.callback = function() {
+
+      var PriceFilter = {
+        min: 0,
+        max: 500,
+      };
+
+      $( "#filtered-price" ).val( "$"+(PriceFilter.min)+ " - " + "$"+(PriceFilter.max))
+      $("#price-range").slider({
+        range: true,
+        min: PriceFilter.min,
+        max: PriceFilter.max,
+        values: [ PriceFilter.min, PriceFilter.max ],
+        slide: function(event, ui) {
+          $( "#filtered-price" ).val( (ui.values[ 0 ])+ " - " + (ui.values[ 1 ]))
+          PriceFilter.min = ui.values[ 0 ]
+          PriceFilter.max = ui.values[ 1 ]
+          applyFilters()
+        }
+      });
+
+      var VisibleMarkers = function() {
+      var filtered = _.reject(Gmaps.map.markers, function(marker) {
+          return marker.price < PriceFilter.min || marker.price > PriceFilter.max;
+        });
+        return filtered
+       }
+
+      var applyFilters = function() {
+        _.each(Gmaps.map.markers, function(marker) {
+          Gmaps.map.hideMarker(marker)
+        })
+        _.each(VisibleMarkers(), function(marker) {
+          Gmaps.map.showMarker(marker)
+        })
+      };
+   }
+});
+</script>
