@@ -1,4 +1,4 @@
 <p><small><%= listing.user.username %></small></p>
 <h5><%= listing.street %>, <%= listing.city %></h5>
-<p><small><%= listing.description %></small></p>
+<h5>$<%= listing.price %></h5>
 <p><%= link_to "Rent Now", "http://#{listing.user.email}", class: "btn btn-primary btn-block", target:"_blank"  %></p>
