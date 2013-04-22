@@ -1,4 +1,14 @@
-<%= gmaps4rails(@json) %>
+<%= gmaps(map_options: { 
+					detect_location: false, 
+					center_on_user:  false,
+					center_latitude: 49.28186,
+					center_longitude: -123.122149,
+					disableDefaultUI: true, 
+					zoom: 6 							},
+					markers: { data: @json }) 
+%>
+
+
 
 <div id="slider" style="position: fixed, bottom: 50px, left: 50px, z-index: 10000000">
 	<div id='price-range' style="width: 500px"></div>
@@ -43,6 +53,7 @@
           Gmaps.map.showMarker(marker)
         })
       };
-   }
-});
+   	}
+
+	});
 </script>
