@@ -1,4 +1,3 @@
-<p><small><%= listing.user.username %></small></p>
 <h5><%= listing.street %>, <%= listing.city %></h5>
-<h5>$<%= listing.price %></h5>
-<p><%= link_to "Rent Now", "http://#{listing.user.email}", class: "btn btn-primary btn-block", target:"_blank"  %></p>
+<h5><span class="label label-success">$<%= listing.price %></span></h5>
+<p><%= mail_to listing.user.email, "Rent Now", class: "btn btn-primary btn-block", target:"_blank", encode: "hex", subject:"Parkit Rental Inquiry: #{listing.street}, #{listing.city}"  %></p>

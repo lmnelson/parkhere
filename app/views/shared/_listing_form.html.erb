@@ -1,15 +1,18 @@
 <%= form_for(@listing) do |f| %>
 	<%= f.label :city %>
-	<%= f.text_field :city, value: "Vancouver"%>
+	<%= f.text_field :city, value: "Vancouver", readonly:"readonly"%>
 
 	<label for="listing_street">Address</label>
 	<%= f.text_field :street, placeholder: "1000 Example St." %>
 
 	<label for="listing_price">Price Per Month</label>
-	<%= f.text_field :price %>
+	<div class="input-prepend">
+		<span class="add-on">$</span>
+		<%= f.text_field :price, id:"prependInput", class:"span4" %>
+	</div>
 
 	<%= f.label :description %>
-	<%= f.text_area :description, rows:8 %>
+	<%= f.text_area :description, rows:8, placeholder:"Secure underground parking. Great neighbourhood ..." %>
 
-	<p><%= f.submit "Add Listing", class: "btn btn-large btn-primary" %></p>
+	<p><%= f.submit "Add Listing", class: "btn btn-primary" %></p>
 <% end %>
