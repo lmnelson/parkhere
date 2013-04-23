@@ -21,8 +21,6 @@ p.notice {
 }
 
 #error_explanation {
-  @extend .alert; 
-  @extend .alert-error; 
   h2 {
     display: none;
   }
@@ -33,13 +31,13 @@ p.notice {
   }
 }
 
-.alert .alert-notice {
-  @extend .alert-success;
-}
-
 .field_with_errors {
   @extend .control-group;
   @extend .error;
+}
+
+.alert.alert-notice {
+  @extend .alert-success;
 }
 
 /* ------------ STICKY FOOTER ------------- */ 

@@ -18,10 +18,10 @@
 
 
 // FADE OUT FLASH MESSAGES
-// $(document).ready(function() {
-// 	 setTimeout(function(){
-// 	  $("div.alert").fadeOut("slow", function () {
-// 	  $("div.alert").remove();
-// 	      });
-// 	}, 4000);
-// });
+$(document).ready(function() {
+	 setTimeout(function(){
+	  $("div.alert").fadeOut("slow", function () {
+	  $("div.alert").remove();
+	      });
+	}, 4000);
+});
