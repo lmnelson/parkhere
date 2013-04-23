@@ -6,15 +6,14 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body <%= " id=#{@body_id}" if @body_id %>>
+<body <%= " id=#{@body_id}" if @body_id %> >
+	<div id="loadingDiv"></div>
 	<div id="wrap">
 		<%= render 'layouts/header' %>
 		<div class="container-fluid content">
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "alert alert-#{key}") %>
       <% end %>
-			<p class="notice"><%= notice %></p>
-	  	<p class="alert"><%= alert %></p>
 			<div class="row-fluid" style="height:100%;">
 				<%= yield %>
 			</div>
@@ -27,5 +26,15 @@
 	  </div>
 	</div> 
 	<%= yield :scripts %>
+	<script>
+		$("body").on({
+	    ajaxStart: function() { 
+	        $(this).addClass("loading"); 
+	    },
+	    ajaxStop: function() { 
+	        $(this).removeClass("loading"); 
+	    }    
+		});
+	</script>
 </body>
 </html>
