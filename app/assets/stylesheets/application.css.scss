@@ -20,6 +20,28 @@ p.notice {
 	display: none;
 }
 
+#error_explanation {
+  @extend .alert; 
+  @extend .alert-error; 
+  h2 {
+    display: none;
+  }
+  ul {
+    text-align: left;
+    list-style: none;
+    margin: 0;
+  }
+}
+
+.alert .alert-notice {
+  @extend .alert-success;
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+}
+
 /* ------------ STICKY FOOTER ------------- */ 
 
 /* Wrapper for page content to push down footer */
