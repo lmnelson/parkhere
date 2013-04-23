@@ -1,7 +1,11 @@
 body#listings {
+	padding-top: 40px;
 	#wrap {
-		margin: 0 auto;
 		height: 100% !important;
+	}
+	
+	#push {
+		display: none;
 	}
 
 	.container-fluid.content {
@@ -13,6 +17,9 @@ body#listings {
 		}
 	}
 	.map_container {
+			padding-top: 60px;
+			margin-top: -60px;
+			box-sizing: border-box;
 		p,h1,h2,h3,h4,h5 {
 			margin: 0;
 			padding: 0;
