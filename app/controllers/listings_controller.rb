@@ -20,10 +20,11 @@ before_filter :authenticate_user!, only: [:create, :destroy]
 	def create
 		@listing = current_user.listings.build(params[:listing])
 		if @listing.save
-      flash[:success] = "Listing Created"
+      flash[:success] = "Listing Created Successfully"
       redirect_to current_user
     else
       redirect_to current_user
+      flash[:error] = "Street and Price must not be blank"
     end
 	end
 

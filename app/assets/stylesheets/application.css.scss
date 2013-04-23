@@ -21,8 +21,9 @@ p.notice {
 }
 
 #error_explanation {
+  @extend .alert-error;
   h2 {
-    display: none;
+    font-size: 14px;
   }
   ul {
     text-align: left;
