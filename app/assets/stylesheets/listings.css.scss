@@ -1,5 +1,9 @@
 body#listings {
-	padding-top: 40px;
+	#wrap {
+		margin: 0 auto;
+		height: 100% !important;
+	}
+
 	.container-fluid.content {
 		height: 100%;
 		padding: 0; 
