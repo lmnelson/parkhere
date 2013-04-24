@@ -83,7 +83,7 @@ body.loading #loadingDiv {
 }
 #footer {
   background-color: #ddd;
-  .container-fluid .footer-links {
+  .container .footer-links {
   	margin: 20px 0;
   }
 }
@@ -100,7 +100,7 @@ body.loading #loadingDiv {
 
 /* ------------ CUSTOM STYLES ------------- */ 
 
-#wrap > .container-fluid {
+#wrap > .container {
   padding-top: 60px;
 }
 

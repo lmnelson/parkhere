@@ -10,18 +10,18 @@
 	<div id="loadingDiv"></div>
 	<div id="wrap">
 		<%= render 'layouts/header' %>
-		<div class="container-fluid content">
+		<div class="container content">
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "alert alert-#{key}") %>
       <% end %>
-			<div class="row-fluid" style="height:100%;">
+			<div class="row" style="height:100%;">
 				<%= yield %>
 			</div>
 		</div>
 		<div id="push"></div> 
 	</div><!-- Close Wrap -->
 	<div id="footer">
-	  <div class="container-fluid">
+	  <div class="container">
 	    <p class="footer-links"><%= link_to "About", about_path %></p>
 	  </div>
 	</div> 
