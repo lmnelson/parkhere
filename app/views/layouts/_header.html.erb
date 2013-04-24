@@ -16,13 +16,13 @@
                 <%= current_user.username %> <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Your Listings", current_user %></li>
+                <li><%= link_to "Your Listing", current_user %></li>
                 <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
                 <li class="divider"></li>
                 <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
               </ul>
             </li>
-            <li><%= link_to "List Your Space", current_user, class:"add-listing" %></li>
+            <li><%= link_to "List Your Space", new_listing_path, class:"add-listing" %></li>
           <% else %>
             <li><%= link_to "Sign Up", new_user_registration_path %></li>
             <li><%= link_to "Login", new_user_session_path %></li>

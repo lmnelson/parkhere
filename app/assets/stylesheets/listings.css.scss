@@ -32,3 +32,51 @@ body#listings {
 		}
 	}
 }
+
+#slider {
+	position: absolute;
+	z-index: 100000;
+	background: rgba(0, 0, 0, 0.7);
+	top: 60px;
+	left: 20px;
+	box-sizing: border-box;
+	padding: 15px 25px 10px;
+	box-shadow: none;
+	.ui-slider-range { 
+		background: #aaa; 
+		height: 5px;
+	}
+	.ui-slider-handle {
+		height: 13px;
+		width: 13px;
+	}
+	.ui-slider-horizontal {
+		height: 5px;
+	}
+	h5 {
+		padding-top: 0;
+		margin: 0 0 15px -7px;
+		color: #eee;
+		font-weight: normal;
+	}
+
+	input {
+		background: none;
+		border: none;
+		color: #eee;
+		margin: 10px 0 0 -13px;
+		box-shadow: none;
+		font-size: 12px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

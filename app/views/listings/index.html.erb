@@ -1,3 +1,9 @@
+<div id="slider" class="span2">
+  <h5>Filter Listings by Price</h5>
+  <div id='price-range' ></div>
+  <input type="text" id="filtered-price" class="span12"/>
+</div>
+
 <%= gmaps(map_options: { 
 					detect_location: false, 
 					center_on_user:  false,
@@ -8,12 +14,6 @@
 					zoom: 13 							},
 					markers: { data: @json }) 
 %>
-
-<!-- <div id="slider" style="position: fixed, bottom: 50px, left: 50px, z-index: 10000000">
-	<div id='price-range' style="width: 500px"></div>
-	<input type="text" id="filtered-price" style="width: 200px"/>
-</div>
- -->
 
 <script type="text/javascript">
   $(document).ready(function() {
@@ -31,7 +31,7 @@
         max: PriceFilter.max,
         values: [ PriceFilter.min, PriceFilter.max ],
         slide: function(event, ui) {
-          $( "#filtered-price" ).val( (ui.values[ 0 ])+ " - " + (ui.values[ 1 ]))
+          $( "#filtered-price" ).val("$"+(ui.values[ 0 ])+ " - " + "$"+(ui.values[ 1 ]))
           PriceFilter.min = ui.values[ 0 ]
           PriceFilter.max = ui.values[ 1 ]
           applyFilters()

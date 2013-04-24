@@ -1,7 +1,14 @@
 <aside class="span4">
   <section>
-  	<h3>Add a Listing</h3>
-  	<%= render 'shared/listing_form' %>
+    <h3>Your Listing</h3>
+    <% if @user.listings.any? %>
+        <ul class="listings">
+          <%= render @listings %> 
+        </ul>
+      <% else %>
+      <p>No space listed. Get started now.</p>
+      <%= link_to "List Your Space", new_listing_path , class: "btn btn-primary" %>
+      <% end %>
   </section>
 </aside>
 
@@ -13,4 +20,5 @@
     </ol>
   <% end %>
 </div> -->
+
 

@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-before_filter :authenticate_user!, only: [:create, :destroy] 
+before_filter :authenticate_user!, only: [:create, :destroy, :edit] 
 
 
 	def index
@@ -13,8 +13,17 @@ before_filter :authenticate_user!, only: [:create, :destroy]
 	  	marker.picture({picture: view_context.image_path('car_blue.png'),
 	  									width: 32,
 	  									height: 40 }) 
-
 		end
+	end
+
+	def show
+    @user = User.find(params[:id])
+		@listings = @user.listings()
+    @listing = current_user.listings.build      
+	end
+
+	def new
+		@listing = current_user.listings.build(params[:listing])
 	end
 
 	def create
@@ -26,6 +35,16 @@ before_filter :authenticate_user!, only: [:create, :destroy]
       redirect_to current_user
       flash[:error] = "Street and Price must not be blank"
     end
+	end
+
+	def edit
+		@user = User.find(params[:id])
+		@listings = @user.listings()
+		@listing = current_user.listings.build(params[:listing])
+	end
+
+	def update
+		
 	end
 
 	def destroy
