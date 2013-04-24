@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-before_filter :authenticate_user!, only: [:create, :destroy, :edit] 
+before_filter :authenticate_user!, only: [:create, :destroy, :edit, :new] 
 
 
 	def index
