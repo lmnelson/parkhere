@@ -1,5 +1,106 @@
+html,
+body {
+	height: 100%; 
+	background: #f9f9f9;
+	box-sizing: border-box;
+}
+
+#wrap > .container {
+  padding-top: 60px;
+}
+
 .navbar .nav > li > a.add-listing {
 	background: blue;
 	color: white;
+}
+
+.navbar.navbar-inverse  {
+	.navbar-inner {
+		height: 50px;
+		background: #006ba6;
+	}
+}
+
+/* -------------- ERROR MESSAGES ---------------- */
+
+p.alert,
+p.notice {
+	display: none;
+}
+
+#error_explanation {
+  @extend .alert-error;
+  h2 {
+    font-size: 14px;
+  }
+  ul {
+    text-align: left;
+    list-style: none;
+    margin: 0;
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+}
+
+.alert.alert-notice {
+  @extend .alert-success;
+}
+
+/* --------------- AJAX PRELOADER ---------------- */
+
+#loadingDiv {  
+  display:    none;
+  position:   fixed;
+  z-index:    10000;
+  top:        0;
+  left:       0;
+  height:     100%;
+  width:      100%;
+  background: rgba(255,255,255,0.8)
+              url("/assets/ajax-loader.gif") 
+              50% 50% 
+              no-repeat;
+}
+
+body.loading {
+    overflow: hidden;   
+}
+
+body.loading #loadingDiv {
+    display: block;
+}
+
+/* ------------------ STICKY FOOTER ------------------ */ 
+
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -60px;
+}
+
+#push,
+#footer {
+  height: 60px;
+}
+#footer {
+  background-color: #ddd;
+  .container .footer-links {
+  	margin: 20px 0;
+  }
+}
+
+/* ---------------- MEDIA QUIRES ------------------ */
+
+@media (max-width: 767px) {
+  #footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 

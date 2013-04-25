@@ -9,7 +9,6 @@
       <%= link_to "Parkit", root_path, class:"brand" %>
       <div class="nav-collapse collapse">
         <ul class="nav pull-right">
-          <li><%= link_to "Browse Listings", listings_path %></li> 
           <% if user_signed_in? %>
             <li id="fat-menu" class="dropdown">      
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -22,11 +21,13 @@
                 <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
               </ul>
             </li>
-            <li><%= link_to "List Your Space", new_listing_path, class:"add-listing" %></li>
+            <li class="btn-after"><%= link_to "Find a Space", listings_path, class:"nav-btn btn-find" %></li> 
+            <li class="btn-after"><%= link_to "List Your Space", new_listing_path, class:"nav-btn btn-list" %></li>
           <% else %>
             <li><%= link_to "Sign Up", new_user_registration_path %></li>
             <li><%= link_to "Login", new_user_session_path %></li>
-            <li><%= link_to "List Your Space", new_user_registration_path, class:"add-listing" %></li>
+            <li class="btn-after"><%= link_to "Find a Space", listings_path, class:"nav-btn btn-find" %></li> 
+            <li class="btn-after"><%= link_to "List Your Space", new_user_registration_path, class:"nav-btn btn-list" %></li>
             <!-- <li><%= link_to "Sign in With Twitter", user_omniauth_authorize_path(:twitter) %></li> -->
           <% end %>
       </div><!--/.nav-collapse -->

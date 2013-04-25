@@ -1,8 +1,12 @@
-<div class="span12 text-center">
-	<h2 class="">Welcome to Parkit</h2>
-	<div class="span6 offset3">
-		<%= link_to "List a Parking Space", new_user_registration_path, class: "btn btn-large btn-primary btn-block" %>
-		<%= link_to "Find a Parking Space", listings_path, class: "btn btn-large btn-block" %>
-	</div>
+<div class="span6">
+	<h1>Find and Rent Parking Space</h1>
+	<p class="subhead">Parkit connects those who have unused parking space with those who need it most. </p>	
+		<%= link_to new_user_registration_path, class: "btn btn-large btn-success" do %>
+			List a Space <i class="icon-circle-arrow-right"></i>
+		<% end %>
+		<%= link_to listings_path, class: "btn btn-large btn-primary" do %>
+			Find a Space <i class="icon-circle-arrow-right"></i>
+		<% end %>
 </div>
+
 
