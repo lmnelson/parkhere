@@ -6,9 +6,9 @@ MusicCollabz::Application.routes.draw do
   resources :listings
   resources :users
 
-  # authenticated :user do
-  #   root :to => "listings#index"
-  # end
+  authenticated :user do
+    root :to => "listings#index"
+  end
   
   match '/about',        to: 'static_pages#about'
   match '/home',         to: 'static_pages#home'

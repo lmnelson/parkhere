@@ -39,6 +39,7 @@ body {
 			padding: 15px 10px;
 		}
 		.dropdown-menu a {
+			padding: 5px 10px;
 			color: #000;
 			&:hover {
 				color: #fff;
@@ -106,6 +107,62 @@ p.notice {
 	background-position: center;
 	margin: -100px 0 0 -100px;
 }
+
+/* ------------------ FORMS ------------------ */ 
+
+form {
+	margin-bottom: 0;
+}
+
+select, 
+textarea, 
+input[type="text"], 
+input[type="password"], 
+input[type="datetime"], 
+input[type="datetime-local"], 
+input[type="date"], 
+input[type="month"], 
+input[type="time"], 
+input[type="week"], 
+input[type="number"], 
+input[type="email"], 
+input[type="url"], 
+input[type="search"], 
+input[type="tel"], 
+input[type="color"], 
+.uneditable-input {
+	min-height: 40px;
+}
+
+.form {
+	&:first-child {
+		margin-top: 30px;
+	}
+	max-width: 300px;
+	padding: 19px 29px 29px;
+	margin: 0 auto 20px;
+	background-color: #FFF;
+	border: 1px solid #E5E5E5;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	input[type="text"], 
+	input[type="password"],
+	input[type="email"],
+	input[type="price"]{
+		// min-height: 40px;
+		// padding: 10px;
+		// margin: 5px 0;
+	}
+	.btn-block {
+		padding: 13px 20px;
+		margin-top: 5px;
+	}
+	h3 {
+		margin: 0;
+	}
+}
+
 
 /* ------------------ STICKY FOOTER ------------------ */ 
 

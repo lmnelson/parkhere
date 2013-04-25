@@ -1,4 +1,4 @@
-<aside class="span4">
+<div class="form">
   <section>
     <h3>Your Listing</h3>
     <% if @user.listings.any? %>
@@ -7,10 +7,10 @@
         </ul>
       <% else %>
       <p>No space listed. Get started now.</p>
-      <%= link_to "List Your Space", new_listing_path , class: "btn btn-primary" %>
+      <%= link_to "List Your Space", new_listing_path , class: "btn btn-primary btn-block" %>
       <% end %>
   </section>
-</aside>
+</div>
 
 <!-- <div class="span8">
   <h3>My Listing</h3>

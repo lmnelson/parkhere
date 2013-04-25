@@ -10,7 +10,7 @@ before_filter :authenticate_user!, only: [:create, :destroy, :edit, :new]
 	  	marker.infowindow render_to_string(partial: "infowindow", locals: {listing: listing})
 	  	marker.title "#{listing.street}"
 	  	marker.json({ price: listing.price })
-	  	marker.picture({picture: view_context.image_path('car_blue.png'),
+	  	marker.picture({picture: view_context.image_path('parking.png'),
 	  									width: 32,
 	  									height: 40 }) 
 		end
