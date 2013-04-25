@@ -6,35 +6,37 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body <%= " id=#{@body_id}" if @body_id %> >
-	<div id="loadingDiv"></div>
+<body <%= " id=#{@body_id}" if @body_id %> >	
 	<div id="wrap">
+		<%= render 'shared/loadingDiv' %>
 		<%= render 'layouts/header' %>
-		<div class="container content">
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-      <% end %>
-			<div class="row" style="height:100%;">
-				<%= yield %>
+		<div id="content-bg">
+			<div class="container content">
+	      <% flash.each do |key, value| %>
+	        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+	      <% end %>	      
+				<div class="row">
+					<%= yield %>
+				</div>
 			</div>
 		</div>
 		<div id="push"></div> 
 	</div><!-- Close Wrap -->
 	<div id="footer">
 	  <div class="container">
-	    <p class="footer-links"><%= link_to "About", about_path %></p>
+	  	<p class="footer-links">
+	  		<%= link_to "Home", root_path %>
+	  		<%= link_to "About", about_path %>
+	  		<%= link_to "How it Works", "#" %>
+	  	</p>
 	  </div>
 	</div> 
 	<%= yield :scripts %>
 	<script>
-		// $("body").on({
-	 //    ajaxStart: function() { 
-	 //        $(this).addClass("loading"); 
-	 //    },
-	 //    ajaxStop: function() { 
-	 //        $(this).removeClass("loading"); 
-	 //    }    
-		// });
+	$(window).load(function() {
+		$("#status").fadeOut();
+		$("#preloader").delay(350).fadeOut("slow");
+	})
 	</script>
 </body>
 </html>

@@ -1,4 +1,28 @@
-// Place all the styles related to the static_pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body#home {
+	#wrap {
+		background: #ffffff; /* Old browsers */
+		background: -moz-linear-gradient(top,  #ffffff 0%, #efefef 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#efefef)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #ffffff 0%,#efefef 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #ffffff 0%,#efefef 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #ffffff 0%,#efefef 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  #ffffff 0%,#efefef 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#efefef',GradientType=0 ); /* IE6-9 */
+	}
+	
+	#welcomeBlurb {
+		margin-top: 20px;
+		a {
+			margin-top: 20px;
+		}
+	}
+
+	.btn:first-of-type {
+		margin-right: 5px;
+	}
+	#wrap .container.content {
+		background: url("/assets/home-showcase.png") no-repeat bottom right;
+		min-height: 585px;
+	}
+}
 

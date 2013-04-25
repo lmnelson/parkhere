@@ -5,7 +5,7 @@ body {
 	box-sizing: border-box;
 }
 
-#wrap > .container {
+#wrap .container.content {
   padding-top: 60px;
 }
 
@@ -14,11 +14,45 @@ body {
 	color: white;
 }
 
+.navbar-inverse .nav li.dropdown.open > .dropdown-toggle, 
+.navbar-inverse .nav li.dropdown.active > .dropdown-toggle, 
+.navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle {
+	background: #005b8c;
+}
+
+#fat-menu a.dropdown-toggle {
+	padding: 15px;
+}
+
 .navbar.navbar-inverse  {
 	.navbar-inner {
 		height: 50px;
 		background: #006ba6;
+		a.brand {
+			padding: 15px 20px;
+		}
+		.container {
+			
+		}
+		a {
+			color: #eee;
+			padding: 15px 10px;
+		}
+		.dropdown-menu a {
+			color: #000;
+			&:hover {
+				color: #fff;
+			}
+		}
 	}
+}
+
+#content-bg {
+	height: 100%;
+}
+
+h3 small {
+	color: #000;
 }
 
 /* -------------- ERROR MESSAGES ---------------- */
@@ -51,26 +85,26 @@ p.notice {
 
 /* --------------- AJAX PRELOADER ---------------- */
 
-#loadingDiv {  
-  display:    none;
-  position:   fixed;
-  z-index:    10000;
-  top:        0;
-  left:       0;
-  height:     100%;
-  width:      100%;
-  background: rgba(255,255,255,0.8)
-              url("/assets/ajax-loader.gif") 
-              50% 50% 
-              no-repeat;
+#preloader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #fff;
+	z-index: 9999;
 }
 
-body.loading {
-    overflow: hidden;   
-}
-
-body.loading #loadingDiv {
-    display: block;
+#status {
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	background-image: url("/assets/ajax-loader.gif");
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: -100px 0 0 -100px;
 }
 
 /* ------------------ STICKY FOOTER ------------------ */ 
@@ -87,9 +121,16 @@ body.loading #loadingDiv {
   height: 60px;
 }
 #footer {
-  background-color: #ddd;
+	border-top: 1px solid #ddd;
+  background-color: #fff;
   .container .footer-links {
   	margin: 20px 0;
+  	a {
+  		margin: 0 10px;
+  		&:first-child {
+  			margin-left: 0;
+  		}
+  	}
   }
 }
 

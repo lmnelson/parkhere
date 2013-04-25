@@ -9,6 +9,7 @@ body#listings {
 	}
 
 	.container.content {
+		position: relative;
 		height: 100%;
 		padding: 0; 
 		.row,
@@ -36,14 +37,18 @@ body#listings {
 #slider {
 	position: absolute;
 	z-index: 100000;
-	background: rgba(0, 0, 0, 0.7);
-	top: 60px;
-	left: 20px;
+	background: #fff;
+	border: 1px solid #000;
+	top: 50px;
+	left: 30px;
 	box-sizing: border-box;
 	padding: 15px 25px 10px;
 	box-shadow: none;
+	max-width: 200px;
+	height: 100px;
+
 	.ui-slider-range { 
-		background: #aaa; 
+		background: #00adef;
 		height: 5px;
 	}
 	.ui-slider-handle {
@@ -56,17 +61,16 @@ body#listings {
 	h5 {
 		padding-top: 0;
 		margin: 0 0 15px -7px;
-		color: #eee;
 		font-weight: normal;
 	}
 
 	input {
 		background: none;
 		border: none;
-		color: #eee;
-		margin: 10px 0 0 -13px;
+		margin: 10px 0 0px -14px;
 		box-shadow: none;
 		font-size: 12px;
+		height: 15px;
 	}
 }
 

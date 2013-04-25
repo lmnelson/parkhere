@@ -1,59 +1,62 @@
-<div id="slider" class="span2">
-  <h5>Filter Listings by Price</h5>
-  <div id='price-range' ></div>
-  <input type="text" id="filtered-price" class="span12"/>
-</div>
+<div class="span12">
+  <div id="slider">
+    <h5>Filter Listings by Price</h5>
+    <div id='price-range' ></div>
+    <input type="text" id="filtered-price"/>
+  </div>
 
-<%= gmaps(map_options: { 
-					detect_location: false, 
-					center_on_user:  false,
-					center_latitude: 49.28186,
-					center_longitude: -123.122149,
-					disableDefaultUI: true,
+  <%= gmaps(map_options: { 
+  					detect_location: false, 
+  					center_on_user:  false,
+  					center_latitude: 49.28186,
+  					center_longitude: -123.122149,
+  					disableDefaultUI: true,
 
-					zoom: 13 							},
-					markers: { data: @json }) 
-%>
+  					zoom: 13 							},
+  					markers: { data: @json }) 
+  %>
 
-<script type="text/javascript">
-  $(document).ready(function() {
-    Gmaps.map.callback = function() {
+  <script type="text/javascript">
+    $(document).ready(function() {
 
-      var PriceFilter = {
-        min: 0,
-        max: 500,
-      };
+      Gmaps.map.callback = function() {
 
-      $( "#filtered-price" ).val( "$"+(PriceFilter.min)+ " - " + "$"+(PriceFilter.max))
-      $("#price-range").slider({
-        range: true,
-        min: PriceFilter.min,
-        max: PriceFilter.max,
-        values: [ PriceFilter.min, PriceFilter.max ],
-        slide: function(event, ui) {
-          $( "#filtered-price" ).val("$"+(ui.values[ 0 ])+ " - " + "$"+(ui.values[ 1 ]))
-          PriceFilter.min = ui.values[ 0 ]
-          PriceFilter.max = ui.values[ 1 ]
-          applyFilters()
-        }
-      });
+        var PriceFilter = {
+          min: 0,
+          max: 500,
+        };
 
-      var VisibleMarkers = function() {
-      var filtered = _.reject(Gmaps.map.markers, function(marker) {
-          return marker.price < PriceFilter.min || marker.price > PriceFilter.max;
+        $( "#filtered-price" ).val( "$"+(PriceFilter.min)+ " - " + "$"+(PriceFilter.max))
+        $("#price-range").slider({
+          range: true,
+          min: PriceFilter.min,
+          max: PriceFilter.max,
+          values: [ PriceFilter.min, PriceFilter.max ],
+          slide: function(event, ui) {
+            $( "#filtered-price" ).val("$"+(ui.values[ 0 ])+ " - " + "$"+(ui.values[ 1 ]))
+            PriceFilter.min = ui.values[ 0 ]
+            PriceFilter.max = ui.values[ 1 ]
+            applyFilters()
+          }
         });
-        return filtered
-       }
 
-      var applyFilters = function() {
-        _.each(Gmaps.map.markers, function(marker) {
-          Gmaps.map.hideMarker(marker)
-        })
-        _.each(VisibleMarkers(), function(marker) {
-          Gmaps.map.showMarker(marker)
-        })
-      };
-   	}
+        var VisibleMarkers = function() {
+        var filtered = _.reject(Gmaps.map.markers, function(marker) {
+            return marker.price < PriceFilter.min || marker.price > PriceFilter.max;
+          });
+          return filtered
+         }
 
-	});
-</script>
+        var applyFilters = function() {
+          _.each(Gmaps.map.markers, function(marker) {
+            Gmaps.map.hideMarker(marker)
+          })
+          _.each(VisibleMarkers(), function(marker) {
+            Gmaps.map.showMarker(marker)
+          })
+        };
+     	}
+
+  	});
+  </script>
+</div>
